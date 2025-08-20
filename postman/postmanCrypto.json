@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "Crypto Tatum API",
+    "_postman_id": "crypto-tatum-collection",
+    "description": "Colección para probar el CRUD de direcciones y transacciones usando Tatum.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Address Principal",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"label\": \"Main Wallet\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/crypto/main",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["crypto", "main"]
+        }
+      }
+    },
+    {
+      "name": "Crear Address Secundaria",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"label\": \"Secondary Wallet\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/crypto/secondary",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["crypto", "secondary"]
+        }
+      }
+    },
+    {
+      "name": "Recargar Address Principal (Faucet)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"address\": \"<DIRECCION_MAIN>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/crypto/faucet",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["crypto", "faucet"]
+        }
+      }
+    },
+    {
+      "name": "Enviar Crypto",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fromAddress\": \"<DIRECCION_MAIN>\",\n  \"toAddress\": \"<DIRECCION_SECUNDARIA>\",\n  \"amount\": \"0.001\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/crypto/transfer",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["crypto", "transfer"]
+        }
+      }
+    },
+    {
+      "name": "Consultar Balance",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"address\": \"<DIRECCION_A_CONSULTAR>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/crypto/balance",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["crypto", "balance"]
+        }
+      }
+    },
+    {
+      "name": "Listar Addresses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/crypto/addresses",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["crypto", "addresses"]
+        }
+      }
+    }
+  ]
+}
